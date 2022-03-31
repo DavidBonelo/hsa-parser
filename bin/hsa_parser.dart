@@ -32,11 +32,16 @@ void main(List<String> arguments) async {
     }
 
     // checks for valid date at position 13 (last update)
-    if (DateTime.tryParse(fields[i][13]) == null) {
-      print('Date at $i is invalid');
+    if (fields[i][13] == '') {
+      // print('empty date at $i');
+    } else {
+      var date = DateTime.tryParse(fields[i][13]);
+      date ??= DateTime.tryParse(fields[i][25]);
+      if (date == null) print('invalid date at $i');
+      // send empty string
     }
   }
-  DateTime.parse(fields[1][13]);
+  print(fields[0][25]);
   // DateTime.parse('2016-05-27');
   // if (DateTime.tryParse(fields[1][13]) == null) {
   //   print('Date is invalid');
