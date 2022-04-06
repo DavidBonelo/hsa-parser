@@ -5,7 +5,7 @@ import 'package:csv/csv.dart';
 
 void main(List<String> arguments) async {
   print('Hello world!');
-  final input = File('data/hsa.csv').openRead();
+  final input = File('data/hsa_active.csv').openRead();
   final fields = await input
       .transform(utf8.decoder)
       .transform(const CsvToListConverter())
@@ -41,7 +41,9 @@ void main(List<String> arguments) async {
       // send empty string
     }
   }
-  print(fields[0][25]);
+  // print(fields[0][25]);
+  print(fields[0]);
+  print(fields[1]);
   // DateTime.parse('2016-05-27');
   // if (DateTime.tryParse(fields[1][13]) == null) {
   //   print('Date is invalid');
